@@ -2,13 +2,19 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox as mbox
 from tkinter import ttk
+import json
+import requests
 
+f = open("veiculo.txt", 'r')
+veiculo = f.read()
 
 def btn1_click():
-    print("Comum")
+    Tela_5_tipo.destroy()
+    import Tela_8_comum
 
 def btn2_click():
-    print("Codigo")
+    Tela_5_tipo.destroy()
+    import Tela_7_por_codigo
 
 Tela_5_tipo = Tk()
 Tela_5_tipo.geometry('300x300+200+200')

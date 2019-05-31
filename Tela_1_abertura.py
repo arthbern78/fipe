@@ -6,7 +6,6 @@ from tkinter import ttk
 def btn1_click():
     Tela_1_abertura.destroy()
     import Tela_2_senha
-    Tela_2_senha()
 
 Tela_1_abertura = Tk()
 Tela_1_abertura.geometry('300x300+200+200')

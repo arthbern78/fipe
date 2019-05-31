@@ -20,13 +20,15 @@ def btn1_click():
         print("Valores Inseridos com Sucesso!!!")
         con.commit()
         con.close()
+        Tela_3_Cadastro.destroy()
+        import Tela_2_senha
     except Exception as erro:
         print(erro)
 
-Tela_3_cadastro = Tk()
-Tela_3_cadastro.geometry('300x300+200+200')
-Tela_3_cadastro.title("Consulta Tabela FIPE")
-Tela_3_cadastro.resizable(False, False)
+Tela_3_Cadastro = Tk()
+Tela_3_Cadastro.geometry('300x300+200+200')
+Tela_3_Cadastro.title("Consulta Tabela FIPE")
+Tela_3_Cadastro.resizable(False, False)
 
 
 lbl0 = Label(text = 'CADASTRO', justify=LEFT, font=("Helvetica", 18))
@@ -76,4 +78,4 @@ mi = PhotoImage(file = "acessar.png").subsample(1,1)
 btn1 = ttk.Button(frm5, width = 5, image = mi,compound = RIGHT, command = btn1_click)
 btn1.pack()
 
-Tela_3_cadastro.mainloop()
+Tela_3_Cadastro.mainloop()

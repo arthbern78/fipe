@@ -15,19 +15,21 @@ def btn1_click():
             port="5432"
         )
         cur = con.cursor()
-        sql = "SELECT senha FROM cadastro WHERE login = (%s)"
-        cur.execute(cur.mogrify(sql, (str(vl1.get()))))
-        print("Busca realizada com Sucesso!!!")
-        con.close()
-        
-        senha = cur.fetchone()[1]
-        if str(senha) == vl2.get():
-            import Tela_4_consulta
+        #sql = "SELECT senha FROM cadastro WHERE login = '%s'"
+        cur.execute("SELECT senha FROM cadastro WHERE login = '%s'" %(str(vl1.get())))
+        senha = cur.fetchone()[0]
+        print(senha)
+        if str(senha) == str(vl2.get()):
+            print("login e senha corretos")
             Tela_2_senha.destroy()
-            Tela_4_consulta()
+            import Tela_4_consulta
+        else:
+            print("login ou senha incorretos")
         con.close()
     except Exception as erro:
-        print(erro)
+        print("Usuário não cadastrado")
+        Tela_2_senha.destroy()
+        import Tela_3_Cadastro
 
 Tela_2_senha = Tk()
 Tela_2_senha.geometry('300x300+200+200')

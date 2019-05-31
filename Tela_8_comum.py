@@ -1,13 +1,20 @@
 import json
-#import requests
+import requests
 import tkinter as tk
 from tkinter import *
 from tkinter import messagebox as mbox
 from tkinter import ttk
 
+f = open("veiculo.txt", "r")
+veiculo = f.read()
 
 def btn1_click():
-    print(var1.get(), var2.get(), var3.get())
+    url = 'http://fipeapi.appspot.com/api/1/' + veiculo + '/marcas.json'
+    data = requests.get(url=url)
+    for marca in data.json():
+        lista_marca.append(marca)
+    print(lista_marca)
+    #print(var1.get(), var2.get(), var3.get())
 
 Tela_8_comum = Tk()
 Tela_8_comum.geometry('300x300+200+200')
@@ -28,7 +35,9 @@ lbl0.pack()
 
 frm3 = Frame(height = 100)
 frm3.pack(fill = X)
-list_of_brands = ['aaa']
+url = 'http://fipeapi.appspot.com/api/1/' + veiculo + '/marcas.json'
+data = requests.get(url=url)
+list_of_brands = [data.json()]
 var1 = StringVar()
 popupMenu1 = OptionMenu(frm3, var1, *list_of_brands)
 popupMenu1.config(width = 20)

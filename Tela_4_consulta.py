@@ -2,16 +2,28 @@ import tkinter as tk
 from tkinter import *
 from tkinter import messagebox as mbox
 from tkinter import ttk
-
+import json
+import requests
 
 def btn1_click():
-    print('carros')
-
+    f = open("veiculo.txt", "w")
+    f.write("carros")
+    f.close()
+    Tela_4_consulta.destroy()
+    import Tela_5_tipo
+    
 def btn2_click():
-    print('caminhoes')
-
+    f = open("veiculo.txt", "w")
+    f.write("caminhoes")
+    f.close()
+    Tela_4_consulta.destroy()
+    import Tela_5_tipo
 def btn3_click():
-    print('motos')
+    f = open("veiculo.txt", "w")
+    f.write("motos")
+    f.close()
+    Tela_4_consulta.destroy()
+    import Tela_5_tipo
 
 Tela_4_consulta = Tk()
 Tela_4_consulta.geometry('300x300+200+200')
