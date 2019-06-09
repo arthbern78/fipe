@@ -20,17 +20,18 @@ def btn1_click():
         senha = cur.fetchone()[0]
         print(senha)
         if str(senha) == str(vl2.get()):
-            print("login e senha corretos")
+            mbox.showinfo("Aviso", "Acesso Permitido")
             Tela_2_senha.destroy()
             import Tela_4_consulta
+            Tela_4_consulta()
         else:
-            print("login ou senha incorretos")
+            mbox.showinfo("Erro", "Login e/ou Senha Incorretos")
         con.close()
     except Exception as erro:
-        print("Usuário não cadastrado")
+        mbox.showinfo("Aviso", "Usuário não cadastrado")
         Tela_2_senha.destroy()
         import Tela_3_Cadastro
-
+        Tela_3_Cadastro()
 Tela_2_senha = Tk()
 Tela_2_senha.geometry('300x300+200+200')
 Tela_2_senha.title("senha")

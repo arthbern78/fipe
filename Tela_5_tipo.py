@@ -10,11 +10,13 @@ veiculo = f.read()
 
 def btn1_click():
     Tela_5_tipo.destroy()
-    import Tela_8_comum
+    import Tela_8A_comum
+    Tela_8A_comum()
 
 def btn2_click():
     Tela_5_tipo.destroy()
     import Tela_7_por_codigo
+    Tela_7_por_codigo()
 
 Tela_5_tipo = Tk()
 Tela_5_tipo.geometry('300x300+200+200')

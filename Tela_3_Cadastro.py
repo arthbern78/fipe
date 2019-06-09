@@ -17,11 +17,12 @@ def btn1_click():
         cur = con.cursor()
         sql = "INSERT INTO cadastro (login, senha, email, sexo) values (%s,%s,%s,%s)"
         cur.execute(cur.mogrify(sql, (str(vl1.get()), str(vl3.get()), str(vl2.get()), str(var.get()))))
-        print("Valores Inseridos com Sucesso!!!")
+        mbox.showinfo("Aviso", "Cadastro Realizado com Sucesso")
         con.commit()
         con.close()
         Tela_3_Cadastro.destroy()
         import Tela_2_senha
+        Tela_2_senha()
     except Exception as erro:
         print(erro)
 
